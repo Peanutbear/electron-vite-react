@@ -229,3 +229,29 @@ function qSort(arr = []) {
     }
     return q(arr);
 }
+
+
+// function permute()
+
+
+function permute(arr) {
+    const ant = [];
+    const dfs = (dfsArr) => {
+        if (dfsArr.length === arr.length) {
+            ant.push(dfsArr);
+            dfsArr = [];
+            return 
+        }
+        arr.forEach(item => {
+            const res = [...dfsArr];
+            if (!res.includes(item)) {
+                res.push(item)
+            }
+            dfs([...res])
+        })
+    }
+    dfs([]);
+}
+
+
+console.log(permute([1, 2, 3]))
